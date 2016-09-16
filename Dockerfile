@@ -23,16 +23,16 @@ RUN cd /usr/local/ && curl -L -O http://dl.google.com/android/android-sdk_r24.4.
     echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force --all --filter "extra-google-google_play_services,extra-google-m2repository,extra-android-m2repository,addon-google_apis-google-23"
 
 # Install Gradle
-RUN cd /usr/local/ && curl -L -O https://services.gradle.org/distributions/gradle-2.10-all.zip && unzip -o gradle-2.10-all.zip
+RUN cd /usr/local/ && curl -L -O https://services.gradle.org/distributions/gradle-2.14.1-all.zip && unzip -o gradle-2.14.1-all.zip
 
 # Environment variables
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV GRADLE_HOME /usr/local/gradle-2.10
+ENV GRADLE_HOME /usr/local/gradle-2.14.1
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV PATH $PATH:$GRADLE_HOME/bin
 
 # Clean up
 RUN rm -rf /usr/local/android-sdk_r24.4.1-linux.tgz
-RUN rm -rf /usr/local/gradle-2.10-all.zip
+RUN rm -rf /usr/local/gradle-2.14.1-all.zip
